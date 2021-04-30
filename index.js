@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const app = express();
 const mysql = require("mysql");
 const cors = require("cors");
-/*
+
 let config = {
     user: "root",
     database: "spotify_team_database",
@@ -14,14 +14,12 @@ if ("around-the-world-musically:us-central1:instanceone" && process.env.NODE_ENV
    config.socketPath = `/cloudsql/around-the-world-musically:us-central1:instanceone`;
 }
 
-/*new comment
+
+
+
 let db = mysql.createConnection(config);
 
-
-
-let db = mysql.createConnection(config);*/
-
-
+/*
 
 var db = mysql.createConnection({
     host:"35.226.161.246",
@@ -30,7 +28,7 @@ var db = mysql.createConnection({
     database: "spotify_team_database",
     port: "3306",
 })
-
+*/
 
 db.connect(function(err){
     if(!err) {
@@ -47,12 +45,15 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json())
 
-
+app.get("/api/test",(require, response) => {
+    response.send("this works");
+});
 app.get("/api/getsrutiquery", (require, response) => {
     const sqlSelect = "SELECT Energy, count(SongAttributes.Song_id) as num_songs_with_high_energy_and_valance FROM SongAttributes  WHERE SongAttributes.Song_id IN (SELECT SongAttributes.Song_id FROM SongAttributes WHERE SongAttributes.Dancibility > 0.7) GROUP BY Energy ORDER BY Energy DESC LIMIT 15;";
     db.query(sqlSelect, (err, result) => {
         if (err) console.log("Error query dont work"); 
         response.send(result);
+        console.log("log this works");
     });
 });
 
@@ -62,6 +63,7 @@ app.post("/api/insert", (require, response) => {
     const sqlInsert = "INSERT INTO `Genre` (`Genre_name`) VALUES (?)";
     db.query(sqlInsert, [genreName], (err, result) => {
         console.log(err);
+
     })
 });
 
