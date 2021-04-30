@@ -34,6 +34,8 @@ db.connect(function(err){
     }
 });
 
+module.exports = db;
+
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
