@@ -4,7 +4,7 @@ const app = express();
 const mysql = require("mysql");
 const cors = require("cors");
 
-let config = {
+/*let config = {
     user: "root",
     database: "spotify_team_database",
     password: "databaseconissuers"
@@ -15,14 +15,15 @@ if ("around-the-world-musically:us-central1:instanceone" && process.env.NODE_ENV
 }
 
 let db = mysql.createConnection(config);
+*/
 
-/*var db = mysql.createConnection({
+var db = mysql.createConnection({
     host:"35.226.161.246",
     user: "root",
     password:"databaseconissuers",
     database: "spotify_team_database",
     port: "3306",
-})*/
+})
 
 
 db.connect(function(err){
