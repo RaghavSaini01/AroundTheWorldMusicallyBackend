@@ -15,7 +15,6 @@ if ("around-the-world-musically:us-central1:instanceone" && process.env.NODE_ENV
 }
 /*new comment*/
 let db = mysql.createConnection(config);
-*/
 
 var db = mysql.createConnection({
     host:"35.226.161.246",
