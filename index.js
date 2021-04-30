@@ -16,13 +16,13 @@ if (process.env.INSTANCE_CONNECTION_NAME && process.env.NODE_ENV === 'production
 
 var db = mysql.createConnection(config);
 
-var db = mysql.createConnection({
+/*var db = mysql.createConnection({
     host:"35.226.161.246",
     user: "root",
     password:"databaseconissuers",
     database: "spotify_team_database",
     port: "3306",
-})
+})*/
 
 
 db.connect(function(err){
