@@ -1,4 +1,4 @@
-runtime: nodejs12 # or another supported version
+runtime: nodejs10 # or another supported version
 env: flex
 beta_settings:
   cloud_sql_instances: around-the-world-musically:us-central1:instanceone
