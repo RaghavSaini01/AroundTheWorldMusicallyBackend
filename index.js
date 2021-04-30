@@ -26,6 +26,12 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json())
 
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
 app.get("/api/getsrutiquery", (require, response) => {
     const sqlSelect = "SELECT Energy, count(SongAttributes.Song_id) as num_songs_with_high_energy_and_valance FROM SongAttributes  WHERE SongAttributes.Song_id IN (SELECT SongAttributes.Song_id FROM SongAttributes WHERE SongAttributes.Dancibility > 0.7) GROUP BY Energy ORDER BY Energy DESC LIMIT 15;";
     db.query(sqlSelect, (err, result) => {
