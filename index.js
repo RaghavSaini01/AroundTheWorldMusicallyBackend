@@ -5,13 +5,13 @@ const mysql = require("mysql");
 const cors = require("cors");
 
 let config = {
-    user: process.env.SQL_USER,
-    database: process.env.SQL_DATABASE,
-    password: process.env.SQL_PASSWORD
+    user: "root",
+    database: "spotify_team_database",
+    password: "databaseconissuers"
 }
 
-if (process.env.INSTANCE_CONNECTION_NAME && process.env.NODE_ENV === 'production') {
-   config.socketPath = `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`;
+if ("around-the-world-musically:us-central1:instanceone" && process.env.NODE_ENV === 'production') {
+   config.socketPath = `/cloudsql/around-the-world-musically:us-central1:instanceone`;
 }
 
 let db = mysql.createConnection(config);
