@@ -115,6 +115,6 @@ app.get("/api/srutiadvancedquery", (require, response) => {
     });
 });
 
- app.listen(3005, () => {
-    console.log("running on port 3005");
+ app.listen(8080, () => {
+    console.log("running on port 8080");
 })
