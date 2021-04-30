@@ -26,7 +26,7 @@ var db = mysql.createConnection({
 })*/
 
 
-db.connect(function(err){
+/*db.connect(function(err){
     if(!err) {
         console.log("Success");
     } else {
@@ -34,7 +34,7 @@ db.connect(function(err){
     }
 });
 
-module.exports = db;
+module.exports = db;*/
 
 
 app.use(cors());
