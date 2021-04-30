@@ -4,6 +4,18 @@ const app = express();
 const mysql = require("mysql");
 const cors = require("cors");
 
+let config = {
+    user: process.env.SQL_USER,
+    database: process.env.SQL_DATABASE,
+    password: process.env.SQL_PASSWORD
+}
+
+if (process.env.INSTANCE_CONNECTION_NAME && process.env.NODE_ENV === 'production') {
+   config.socketPath = `/cloudsql/${process.env.INSTANCE_CONNECTION_NAME}`;
+}
+
+var db = mysql.createConnection(config);
+
 var db = mysql.createConnection({
     host:"35.226.161.246",
     user: "root",
