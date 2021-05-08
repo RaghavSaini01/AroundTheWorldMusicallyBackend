@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const app = express();
 const mysql = require("mysql");
 const cors = require("cors");
-
+/*
 let config = {
     user: "root",
     database: "spotify_team_database",
@@ -18,8 +18,7 @@ if ("around-the-world-musically:us-central1:instanceone" && process.env.NODE_ENV
 
 
 let db = mysql.createConnection(config);
-
-/*
+*/
 
 var db = mysql.createConnection({
     host:"35.226.161.246",
@@ -28,7 +27,7 @@ var db = mysql.createConnection({
     database: "spotify_team_database",
     port: "3306",
 })
-*/
+
 
 db.connect(function(err){
     if(!err) {
@@ -115,6 +114,6 @@ app.get("/api/srutiadvancedquery", (require, response) => {
     });
 });
 
- app.listen(8080, () => {
+ app.listen(3005, () => {
     console.log("running on port 8080");
 })
